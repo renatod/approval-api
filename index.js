@@ -20,6 +20,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     icon: 'me-icon icon-ban',
     form: [{
       type: 'textarea',
+      name: 'reason',
       label: 'Reason',
       required: true
     }]
