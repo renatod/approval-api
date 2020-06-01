@@ -15,7 +15,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     label: 'Refuse',
     action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
     form: [{
-      input: 'textarea',
+      type: 'textarea',
       label: 'Reason',
       required: true
     }]
