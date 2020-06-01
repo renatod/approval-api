@@ -10,10 +10,10 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
   const { processType, processNumber } = req.params
   res.json([{
     label: 'Approve',
-    action: `/${processType}/${processNumber}/action/approve`
+    action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/approve`
   }, {
     label: 'Refuse',
-    action: `/${processType}/${processNumber}/action/resuse`,
+    action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
     form: [{
       input: 'textarea',
       label: 'Reason',
