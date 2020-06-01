@@ -10,13 +10,13 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
   const { processType, processNumber } = req.params
   res.json([{
     label: 'Approve',
-    action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/approve`,
+    url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/approve`,
     icon: 'me-icon icon-check',
     description: 'This action will approve the document',
     confirmation: 'You are approving the document, are you sure?'
   }, {
     label: 'Refuse',
-    action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
+    url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
     icon: 'me-icon icon-ban',
     form: [{
       type: 'textarea',
@@ -26,7 +26,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
   }, {
     label: 'Delegate',
     icon: 'me-icon icon-user-edit',
-    url: 'https://www.google.com.br/'
+    location: 'https://www.google.com.br/'
   }])
 });
 
