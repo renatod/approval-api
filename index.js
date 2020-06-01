@@ -13,11 +13,13 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/approve`,
     icon: 'me-icon icon-check',
     description: 'This action will approve the document',
-    confirmation: 'You are approving the document, are you sure?'
+    confirmation: 'You are approving the document, are you sure?',
+    style: 'btn-primary btn-pill'
   }, {
     label: 'Refuse',
     url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
     icon: 'me-icon icon-ban',
+    style: 'btn-outline-primary btn-pill',
     form: [{
       type: 'textarea',
       name: 'reason',
@@ -27,6 +29,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
   }, {
     label: 'Delegate',
     icon: 'me-icon icon-user-edit',
+    style: 'btn-outline-primary btn-pill',
     location: 'https://www.google.com.br/'
   }])
 });
