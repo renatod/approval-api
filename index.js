@@ -11,11 +11,13 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
   res.json([{
     label: 'Approve',
     action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/approve`,
+    icon: 'me-icon icon-check',
     description: 'This action will approve the document',
     confirmation: 'You are approving the document, are you sure?'
   }, {
     label: 'Refuse',
     action: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
+    icon: 'me-icon icon-ban',
     form: [{
       type: 'textarea',
       label: 'Reason',
@@ -23,6 +25,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     }]
   }, {
     label: 'Delegate',
+    icon: 'me-icon icon-user-edit',
     url: 'https://www.google.com.br/'
   }])
 });
