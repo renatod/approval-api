@@ -17,7 +17,7 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     style: 'btn-primary btn-pill'
   }, {
     label: 'Refuse',
-    url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/resuse`,
+    url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/refuse`,
     icon: 'me-icon icon-ban',
     style: 'btn-outline-primary btn-pill',
     form: [{
@@ -45,7 +45,7 @@ app.post('/:processType/:processNumber/action/:action', (req, res) => {
       })
     } else {
       res.json({
-        detail: `Process ${processNumber} successfully ${action}`
+        detail: `Process ${processNumber} successfully ${action}d`
       })
     }
   }, 3000)
