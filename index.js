@@ -37,16 +37,18 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
 app.post('/:processType/:processNumber/action/:action', (req, res) => {
   const { processNumber, action } = req.params
 
-  if (action === 'approve') {
-    res.status(403).json({
-      title: "Access forbidden",
-      detail: `You dont have access to approve this document`
-    })
-  } else {
-    res.json({
-      detail: `Process ${processNumber} successfully ${action}`
-    })
-  }
+  setTimeout(() => {
+    if (action === 'approve') {
+      res.status(403).json({
+        title: "Access forbidden",
+        detail: `You dont have access to approve this document`
+      })
+    } else {
+      res.json({
+        detail: `Process ${processNumber} successfully ${action}`
+      })
+    }
+  }, 3000)
 })
 
 app.listen(process.env.PORT || 3100, () => {
