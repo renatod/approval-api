@@ -41,11 +41,11 @@ app.post('/:processType/:processNumber/action/:action', (req, res) => {
     if (action === 'approve') {
       res.status(403).json({
         title: "Access forbidden",
-        detail: `You dont have access to approve this document`
+        messageDetail: `You dont have access to approve this document`
       })
     } else {
       res.json({
-        detail: `Process ${processNumber} successfully ${action}d`
+        messageDetail: `Process ${processNumber} successfully ${action}d`
       })
     }
   }, 3000)
