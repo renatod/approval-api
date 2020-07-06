@@ -31,11 +31,6 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
       name: 'reason',
       label: 'Reason',
       required: true
-    },{
-      type: 'text',
-      name: 'code',
-      label: 'Code',
-      required: true
     }]
   }, {
     label: 'Delegate',
