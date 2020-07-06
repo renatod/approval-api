@@ -14,7 +14,13 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     icon: 'me-icon icon-check',
     description: 'This action will approve the document',
     confirmation: 'You are approving the document, are you sure?',
-    style: 'btn-primary btn-pill'
+    style: 'btn-primary btn-pill',
+    form: [{
+      type: 'text',
+      name: 'code',
+      label: 'Código do cliente',
+      required: true
+    }]
   }, {
     label: 'Refuse',
     url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/refuse`,
