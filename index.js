@@ -36,12 +36,12 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
       type: 'textarea',
       name: 'reason',
       label: 'Reason',
-      requiredIf: [{
+      requiredIf: {
         any: [{
           field: 'conformidade',
           equalsTo: 'PNC'
         }]
-      }]
+      }
     }]
   }, {
     label: 'Refuse',
