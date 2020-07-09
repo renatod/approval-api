@@ -20,6 +20,28 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
       name: 'code',
       label: 'Código do cliente',
       required: true
+    }, {
+      type: 'select',
+      name: 'conformidade',
+      label: 'Informe a situação do processo.',
+      required: true,
+      options: [{
+        value: 'PC',
+        label: 'Processo Conforme'
+      }, {
+        value: 'PNC',
+        label: 'Processo Não Conforme'
+      }]
+    }, {
+      type: 'textarea',
+      name: 'reason',
+      label: 'Reason',
+      requiredIf: [{
+        any: [{
+          field: 'conformidade',
+          equalsTo: 'PNC'
+        }]
+      }]
     }]
   }, {
     label: 'Refuse',
