@@ -25,13 +25,17 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
       name: 'conformidade',
       label: 'Informe a situação do processo.',
       required: true,
-      options: [{
-        value: 'PC',
-        label: 'Processo Conforme'
-      }, {
-        value: 'PNC',
-        label: 'Processo Não Conforme'
-      }]
+      options: {
+        label: 'label',
+        value: 'value',
+        options: [{
+          value: 'PC',
+          label: 'Processo Conforme'
+        }, {
+          value: 'PNC',
+          label: 'Processo Não Conforme'
+        }]
+      }
     }, {
       type: 'textarea',
       name: 'reason',
@@ -59,6 +63,25 @@ app.get('/:processType/:processNumber/actions', (req, res) => {
     icon: 'me-icon icon-user-edit',
     style: 'btn-outline-primary btn-pill',
     location: 'https://www.google.com.br/'
+  }, {
+    label: 'Submit Form',
+    url: `https://approval-api-dummy.herokuapp.com/${processType}/${processNumber}/action/submit`,
+    icon: 'me-icon icon-check',
+    style: 'btn-outline-primary btn-pill',
+    form: [{
+      type: 'number',
+      name: 'total',
+      label: 'Valor Unitátio',
+      required: true,
+      options: {
+        precision: 2,
+        thousandSeparator: '.'
+      }
+    }, {
+      type: 'boolean',
+      name: "receberEmail",
+      label: "Receber E-Mail"
+    }]
   }])
 });
 
